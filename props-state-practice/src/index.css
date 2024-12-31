@@ -22,3 +22,25 @@ code {
   display: flex;
   justify-content: space-between;
 }
+.carsContainer {
+  display: grid; /* Enables Grid layout */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Responsive columns */
+  gap: 16px; /* Space between grid items */
+  padding: 16px;
+}
+.carsContent {
+  display: flex; /* Enables Flexbox for card content */
+  flex-direction: column; /* Ensures vertical alignment */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  text-align: center; /* Optional: Aligns text */
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+}
