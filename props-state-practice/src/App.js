@@ -1,4 +1,6 @@
 import './index.css';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom/client'
 import Cars from './Cars';
 import Buttons from './buttons';
 import Shoes from './Shoes';
@@ -103,21 +105,30 @@ const shoes = [
     photo: "./pics/pumaRSX3.jpeg" // Add your photo link here
   }
 ];
-
 function App() {
+  const [visibleCategory, setVisibleCategory] = useState(''); // Tracks which category is visible
 
   return (
     <div className="App">
-      <Buttons/>
-    {cars.map((car, index) => (
-      <Cars carsObj={car} />
-    ))}
-    {shoes.map(shoe=>{
-      return <Shoes shoeObj= {shoe}/>
-    })}
-    {fruits.map(fruit=>{
-      return <Fruits fruitsObj= {fruit}/>
-    })}
+      <Buttons setVisibleCategory={setVisibleCategory} />
+      
+      <div className={`carsContainer ${visibleCategory === 'cars' ? '' : 'hidden'}`}>
+        {cars.map((car) => (
+          <Cars key={car.id} carsObj={car} />
+        ))}
+      </div>
+      
+      <div className={`shoesContainer ${visibleCategory === 'shoes' ? '' : 'hidden'}`}>
+        {shoes.map((shoe) => (
+          <Shoes key={shoe.id} shoeObj={shoe} />
+        ))}
+      </div>
+      
+      <div className={`fruitsContainer ${visibleCategory === 'fruits' ? '' : 'hidden'}`}>
+        {fruits.map((fruit) => (
+          <Fruits key={fruit.id} fruitsObj={fruit} />
+        ))}
+      </div>
     </div>
   );
 }

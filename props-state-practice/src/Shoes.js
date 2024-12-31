@@ -4,7 +4,7 @@ import './index.css';
 export default function Shoes({shoeObj}){
     const {name, brand,price, size,color,photo}= shoeObj
     return (<div className='shoesContainer'>
-<div className={`shoesCOntent`}>
+<div className='shoesContent'>
                 <img src={photo} alt={`${name}`}/>
                  <span>Name:{name}</span>
                  <span>Brand:{brand}</span>
